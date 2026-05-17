@@ -95,7 +95,7 @@ export default function ProjectsShowcase() {
             <div className="relative h-[200px] md:h-[220px] overflow-hidden bg-bg-secondary shrink-0">
               <img
                 src={p.projectImage}
-                alt={`${p.customerName}'s Completed Solar Grid`}
+                alt={`${p.customerName}'s Completed Solar Grid - Teja Solar ${p.projectType} in ${p.location}, Andhra Pradesh`}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
