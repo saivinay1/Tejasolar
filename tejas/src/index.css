@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  
+  --color-primary: hsl(215, 80%, 12%);
+  --color-primary-light: hsl(215, 50%, 25%);
+  --color-accent: hsl(35, 100%, 50%);
+  --color-accent-hover: hsl(35, 100%, 43%);
+  --color-accent-light: hsl(35, 100%, 96%);
+  
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: hsl(215, 40%, 98%);
+  
+  --color-text-main: hsl(215, 50%, 15%);
+  --color-text-muted: hsl(215, 20%, 45%);
+  --color-text-light: #ffffff;
+  
+  --color-border-color: hsl(215, 25%, 90%);
+}
+
+:root {
+  /* HSL palette fallback for standard integrations */
+  --primary-hue: 215;
+  --accent-hue: 35;
+
+  --primary: hsl(var(--primary-hue), 80%, 12%);
+  --primary-light: hsl(var(--primary-hue), 50%, 25%);
+  --accent: hsl(var(--accent-hue), 100%, 50%);
+  --accent-hover: hsl(var(--accent-hue), 100%, 43%);
+  --accent-light: hsl(var(--accent-hue), 100%, 96%);
+
+  --bg-primary: #ffffff;
+  --bg-secondary: hsl(var(--primary-hue), 40%, 98%);
+
+  --text-main: hsl(var(--primary-hue), 50%, 15%);
+  --text-muted: hsl(var(--primary-hue), 20%, 45%);
+  --text-light: #ffffff;
+
+  --border-color: hsl(var(--primary-hue), 25%, 90%);
+
+  --font-family: 'Outfit', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: hsl(var(--primary-hue), 80%, 8%);
+    --primary-light: hsl(var(--primary-hue), 40%, 16%);
+    --accent: hsl(var(--accent-hue), 100%, 53%);
+    --accent-hover: hsl(var(--accent-hue), 90%, 46%);
+    --accent-light: hsl(var(--accent-hue), 40%, 12%);
+
+    --bg-primary: hsl(var(--primary-hue), 50%, 4%);
+    --bg-secondary: hsl(var(--primary-hue), 35%, 8%);
+
+    --text-main: hsl(var(--primary-hue), 30%, 90%);
+    --text-muted: hsl(var(--primary-hue), 20%, 65%);
+
+    --border-color: hsl(var(--primary-hue), 30%, 16%);
+  }
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom testimonial marquee animation */
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-horizontal 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Floating WhatsApp bubble custom animations */
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float-btn {
+  animation: pulse-whatsapp 2s infinite;
+}
