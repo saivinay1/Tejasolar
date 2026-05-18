@@ -4,6 +4,8 @@ import { faArrowLeft, faArrowRight, faSolarPanel } from '@fortawesome/free-solid
 
 
 
+const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '919391110007';
+
 export default function ProductSection() {
   const services = [
     {
@@ -12,6 +14,7 @@ export default function ProductSection() {
       category: 'Smart Integration',
       title: 'HYBRID GRID',
       desc: 'Combine grid stability with solar energy independence, relying on advanced battery backups to keep your operations active during blackouts.',
+      whatsappMsg: 'Hello Teja Solar, I am interested in your Hybrid Grid Solar System. Please provide me with the product details and price estimates.',
     },
     {
       id: 2,
@@ -19,6 +22,7 @@ export default function ProductSection() {
       category: 'Standalone Power',
       title: 'OFF GRID',
       desc: 'Achieve complete energy independence in remote areas using high-performance solar panels paired with premium battery storage solutions.',
+      whatsappMsg: 'Hello Teja Solar, I am interested in your Off-Grid Solar System. Please share product specifications, battery life details, and cost estimates.',
     },
     {
       id: 3,
@@ -26,6 +30,7 @@ export default function ProductSection() {
       category: 'Grid-Tied Solutions',
       title: 'ON GRID',
       desc: 'Drastically reduce your monthly utility bills by feeding excess solar power back to the grid, enjoying state subsidies and net-metering benefits.',
+      whatsappMsg: 'Hello Teja Solar, I am interested in your On-Grid Solar System. Please provide information about net-metering setups and system quotes.',
     },
     {
       id: 4,
@@ -33,6 +38,7 @@ export default function ProductSection() {
       category: 'Agricultural Solar',
       title: 'FARM FIELD SOLAR',
       desc: 'Empower your agricultural operations with efficient solar energy solutions for irrigation systems, farm equipment, and rural power needs while reducing electricity costs and ensuring sustainable farming.',
+      whatsappMsg: 'Hello Teja Solar, I am interested in your Farm Field Solar agricultural solutions. Please share setup details and agricultural benefits.',
     },
   ];
 
@@ -196,9 +202,10 @@ export default function ProductSection() {
                       </p>
                       <div className="mt-auto">
                         <a
-                          href="#contact"
-                          onClick={handleScrollToCalculator}
-                          className="inline-flex items-center gap-2 font-extrabold text-xs md:text-sm text-black bg-[#36FB04] hover:bg-[#2ed603] active:scale-95 shadow-sm hover:shadow-md transition-all duration-300 px-6 py-2.5 rounded-full"
+                          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(s.whatsappMsg)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 font-extrabold text-xs md:text-sm text-black bg-[#36FB04] hover:bg-[#2ed603] active:scale-95 shadow-sm hover:shadow-md transition-all duration-300 px-6 py-2.5 rounded-full cursor-pointer"
                         >
                           <span>Read More</span>
                           <FontAwesomeIcon icon={faArrowRight} className="text-black shrink-0 transition-transform group-hover:translate-x-1 duration-300" />
