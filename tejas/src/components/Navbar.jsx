@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import logo from "../assets/teja_logo_solar.png"
+import TejaSolarLogo from './TejaSolarLogo';
+import logo from "../assets/Teja.jpeg"
 
 
 export default function Navbar({ view, navigateTo, activeSection, setActiveSection }) {
@@ -37,29 +38,27 @@ export default function Navbar({ view, navigateTo, activeSection, setActiveSecti
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Services' },
-    { id: 'projects', label: 'Happy Customers' },
     { id: 'testimonials', label: 'Products' },
+    { id: 'projects', label: 'Happy Customers' },
     { id: 'locations', label: 'Our Locations' },
     { id: 'contact', label: 'Quote Calculator' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-300 border-b ${scrolled
-      ? 'py-3.5 bg-white/90 dark:bg-dark-primary/90 backdrop-blur-md shadow-md border-border-color dark:border-dark-border'
-      : 'py-5 bg-white/70 dark:bg-[#0a1426]/70 backdrop-blur-md border-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 transition-all duration-300 border-b bg-white dark:bg-[#0a1426] border-border-color dark:border-dark-border ${scrolled
+      ? 'py-2 shadow-md'
+      : 'py-3.5 shadow-sm'
       }`}>
 
       <a
         href="#home"
-        className="flex items-center tracking-tight transition-transform active:scale-95 group"
+        className="flex items-center tracking-tight transition-transform active:scale-95 group focus:outline-none"
         onClick={handleLogoClick}
+        aria-label="Teja Solar Solutions Home"
       >
-        {/* Preserves perfect aspect ratio, crisp rendering, and matches navbar heights */}
-        <img
-          src={logo}
-          alt="Teja Solar Logo"
-          className="h-9 sm:h-10 md:h-15 w-64 object-contain transition-all duration-300 group-hover:brightness-105"
-        />
+        {/* Render refined modern vector logo and glowing typography */}
+        <img src={logo} alt="Logo" className="h-24 sm:h-24 md:h-24 w-36 md:w-56 object-contain transition-all duration-300 group-hover:brightness-105" />
+        <TejaSolarLogo className="-ml-4 sm:-ml-6 md:-ml-8" />
       </a>
 
       {/* Hamburger Toggle Button */}
