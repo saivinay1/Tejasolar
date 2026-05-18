@@ -17,7 +17,7 @@ function CountUp({ target, duration = 800 }) {
       frame++;
       const progress = frame / totalFrames;
       const easeProgress = progress * (2 - progress); // easeOutQuad
-      
+
       const currentCount = easeProgress * end;
       setCount(currentCount);
 
@@ -38,21 +38,21 @@ export default function StatsSection() {
     {
       id: 1,
       icon: faSolarPanel,
-      target: '3500',
+      target: '22',
       suffix: '+',
-      label: 'Panels Installed',
+      label: 'Projects Completed',
     },
     {
       id: 2,
       icon: faUsers,
-      target: '850',
+      target: '100',
       suffix: '+',
       label: 'Happy Clients',
     },
     {
       id: 3,
       icon: faBriefcase,
-      target: '45',
+      target: '25',
       suffix: '+',
       label: 'In-House Technicians',
     },
@@ -69,8 +69,8 @@ export default function StatsSection() {
     <section className="py-16 md:py-20 bg-bg-secondary dark:bg-[#060c18] border-y border-border-color dark:border-dark-border">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto px-6 md:px-12">
         {stats.map((s) => (
-          <div 
-            key={s.id} 
+          <div
+            key={s.id}
             className="flex flex-col items-center text-center p-6 bg-white dark:bg-dark-primary/30 rounded-2xl border border-border-color dark:border-dark-border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1.5"
           >
             <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-accent-light dark:bg-accent/10 text-accent mb-4 text-xl">
