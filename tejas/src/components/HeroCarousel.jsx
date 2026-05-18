@@ -175,7 +175,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="home"
-      className="relative h-[800px] md:h-[900px] lg:h-[100vh] min-h-[780px] w-full overflow-hidden bg-black flex items-center justify-center"
+      className="relative min-h-screen lg:h-[100vh] w-full overflow-hidden bg-black flex items-center justify-center pt-32 sm:pt-36 lg:pt-0 pb-16 lg:pb-0"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >
@@ -205,7 +205,7 @@ export default function HeroCarousel() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/80 to-black/95 lg:bg-gradient-to-r lg:from-black/90 lg:via-black/75 lg:to-black/30 z-10 pointer-events-none" />
 
       {/* Cinematic Main Grid Layout */}
-      <div className="relative z-20 container mx-auto px-6 md:px-12 lg:px-20 h-full flex flex-col justify-center pt-24 pb-28 md:pb-36 lg:pt-28 lg:pb-32">
+      <div className="relative z-20 container mx-auto px-6 md:px-12 lg:px-20 h-full flex flex-col justify-center pt-4 pb-12 lg:pt-20 lg:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full">
           
           {/* Left Column: Stationary Premium Content */}
