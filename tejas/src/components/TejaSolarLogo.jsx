@@ -21,7 +21,7 @@ export default function TejaSolarLogo({ className = "" }) {
             SOLAR
           </span>
         </div>
-        <span className="font-bold text-[0.46rem] sm:text-[0.46rem] md:text-[0.66rem] tracking-[0.26em] text-text-muted dark:text-dark-text-main/60 uppercase leading-none mt-1 md:mt-2 transition-colors duration-300">
+        <span className="font-bold text-[0.46rem] sm:text-[0.46rem] md:text-[0.66rem] tracking-[0.26em] text-[#FF9500] dark:text-[#FF9500] uppercase leading-none mt-1 md:mt-2 transition-colors duration-300">
           SOLUTIONS
         </span>
       </div>

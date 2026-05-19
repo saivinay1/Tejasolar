@@ -130,7 +130,7 @@ export default function App() {
                   SOLAR
                 </span>
               </div>
-              <span className="font-bold text-[0.75rem] sm:text-[0.90rem] md:text-[1.15rem] tracking-[0.38em] text-[#268BFF] animate-subtitle uppercase leading-none mt-2.5 md:mt-4">
+              <span className="font-bold text-[0.75rem] sm:text-[0.90rem] md:text-[1.15rem] tracking-[0.38em] text-[#DB8000] animate-subtitle uppercase leading-none mt-2.5 md:mt-4">
                 SOLUTIONS
               </span>
               <span className="text-[10px] md:text-[12px] text-white/40 tracking-[0.2em] font-medium uppercase mt-4 animate-subtitle">

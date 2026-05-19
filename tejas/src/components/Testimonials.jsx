@@ -4,25 +4,26 @@ import { faStar, faBolt, faSlidersH, faCheck, faShieldAlt, faMicrochip } from '@
 import adani from '../assets/adani_solar.jpg';
 import vikram from '../assets/vikram_solar.webp';
 import polycab from '../assets/polycab.webp';
-import solar_battery from '../assets/solar_batteries.webp';
+import waaree from '../assets/waaree.png';
 
 
 export default function Testimonials() {
   const products = [
+
     {
       id: 1,
-      title: 'Adani Solar Panels',
-      image: adani,
-      desc: 'Tier-1 high-yield monocrystalline N-type PV modules built for maximum performance and durability under hot climates.',
+      title: 'Waaree Solar Panels',
+      image: waaree,
+      desc: 'Tier-1 high-efficiency monocrystalline N-type TOPCon PV modules designed for high energy yield and reliable performance in tropical environments.',
       features: [
-        'N-Type Cell Technology',
-        'Zero LID & PID Degradation',
-        'Excellent Low-Light Performance',
+        'Advanced N-Type TOPCon Technology',
+        'Mitigated LID & PID for Long-Term Reliability',
+        'Superior Performance under Low-Light Conditions',
       ],
       specs: {
         capacity: '550Wp - 575Wp',
-        efficiency: '22.3% Efficiency',
-        warranty: '25-Year Performance Warranty',
+        efficiency: '22.2% - 22.3% Efficiency',
+        warranty: '30-Year Performance Warranty',
       },
     },
     {
@@ -59,20 +60,21 @@ export default function Testimonials() {
     },
     {
       id: 4,
-      title: 'Solar Batteries',
-      image: solar_battery,
-      desc: 'Heavy-duty lithium iron phosphate (LiFePO4) & deep-cycle storage units built for off-grid hybrid power backups.',
+      title: 'Adani Solar Panels',
+      image: adani,
+      desc: 'Tier-1 high-yield monocrystalline N-type PV modules built for maximum performance and durability under hot climates.',
       features: [
-        'High Power Discharge Cycles',
-        'Intelligent Built-in BMS',
-        'Modular Expandable Storage',
+        'N-Type Cell Technology',
+        'Zero LID & PID Degradation',
+        'Excellent Low-Light Performance',
       ],
       specs: {
-        capacity: '5 kWh - 15 kWh Modules',
-        efficiency: '6000+ Life Cycles',
-        warranty: '10-Year Estimated Lifetime',
+        capacity: '550Wp - 575Wp',
+        efficiency: '22.3% Efficiency',
+        warranty: '25-Year Performance Warranty',
       },
     },
+
   ];
 
   return (

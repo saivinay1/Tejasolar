@@ -16,14 +16,6 @@ export default function PMSuryaGhar() {
 
   const subsidies = [
     {
-      capacity: '1 kW System',
-      subsidy: '₹ 30,000',
-      avgCost: '₹ 50,000 - 60,000',
-      netCost: '₹ 20,000 - 30,000',
-      description: 'Ideal for small residential homes with 1-2 rooms and basic energy loads (lights, fans, TV).',
-      popular: false,
-    },
-    {
       capacity: '2 kW System',
       subsidy: '₹ 60,000',
       avgCost: '₹ 1,00,000 - 1,20,000',
@@ -32,11 +24,19 @@ export default function PMSuryaGhar() {
       popular: true,
     },
     {
-      capacity: '3 kW - 10 kW',
+      capacity: '3 kW System',
       subsidy: '₹ 78,000 (Max)',
-      avgCost: '₹ 1,50,000 - 1,80,000',
-      netCost: '₹ 72,000 - 1,02,000',
-      description: 'Maximum financial benefit. Perfect for standard homes with multiple ACs, heaters, or heavy appliances.',
+      avgCost: '₹ 1,90,000 - 2,10,000',
+      netCost: '₹ 1,12,000 - 1,32,000',
+      description: 'Perfect for standard homes with multiple ACs, heaters, or heavy appliances.',
+      popular: false,
+    },
+    {
+      capacity: '4 kW System',
+      subsidy: '₹ 78,000 (Max)',
+      avgCost: '₹ 2,40,000 - 2,70,000',
+      netCost: '₹ 1,62,000 - 1,92,000',
+      description: 'Excellent for larger residential setups, EV charging, and high daytime power consumption.',
       popular: false,
     },
   ];
