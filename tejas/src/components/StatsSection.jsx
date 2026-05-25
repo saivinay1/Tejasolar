@@ -38,7 +38,7 @@ export default function StatsSection() {
     {
       id: 1,
       icon: faSolarPanel,
-      target: '22',
+      target: '25',
       suffix: '+',
       label: 'Projects Completed',
     },
