@@ -31,8 +31,8 @@ export default function ProjectsShowcase() {
     },
     {
       id: 3,
-      projectType: '3 kW Agricultural Pump System',
-      feedback: 'Running our high-capacity agricultural water pumps on solar fields has made irrigation cost-free. Teja Solar’s field panels are robust and highly efficient.',
+      projectType: '3 kW Commercial Rooftop',
+      feedback: 'We installed a robust rooftop solar setup for our business workspace. Teja Solar’s high-efficiency panels have made our daytime operations completely grid-independent.',
       projectImage: image3,
     },
     {
@@ -43,14 +43,14 @@ export default function ProjectsShowcase() {
     },
     {
       id: 5,
-      projectType: '3 kW Commercial Carport Setup',
-      feedback: 'The solar carports provide shade for our employee parking while generating mega-watts of clean power. A perfect dual-use solar engineering design.',
+      projectType: '3 kW Commercial Rooftop',
+      feedback: 'The rooftop solar system generates clean power efficiently. A perfect clean energy engineering design for our office building.',
       projectImage: image5,
     },
     {
       id: 6,
-      projectType: '3 kW Agrivoltaic Farm Setup',
-      feedback: 'We installed agrivoltaic ground panels over our crop fields. The partial shade is actually improving our plant growth while generating free power!',
+      projectType: '3 kW Residential Rooftop',
+      feedback: 'We installed rooftop panels over our home terrace. The setup is highly durable, generating clean, reliable power while lowering our grid dependence.',
       projectImage: image6,
     },
     {
@@ -67,25 +67,25 @@ export default function ProjectsShowcase() {
     },
     {
       id: 9,
-      projectType: '3 kW Commercial Setup',
+      projectType: '3 kW Commercial Rooftop',
       feedback: 'The ROI on this solar setup is fantastic. Teja Solar made the entire documentation and subsidy process completely hassle-free for our business.',
       projectImage: image9,
     },
     {
       id: 10,
-      projectType: '2 kW Agricultural Pump System',
-      feedback: 'Our agricultural pump setup now operates completely on solar. No more relying on erratic grid power timings to irrigate our plantations.',
+      projectType: '2 kW Residential Rooftop',
+      feedback: 'Our rooftop setup operates beautifully. No more relying on erratic power grids during hot summer days, and we get uninterrupted cooling.',
       projectImage: image10,
     },
     {
       id: 11,
-      projectType: '3 kW Hybrid Solar Solution',
+      projectType: '3 kW Residential Rooftop',
       feedback: 'This hybrid setup with battery storage has completely insulated us from power fluctuations. Clean power during the day, silent backup at night—it’s pure energy freedom.',
       projectImage: image11,
     },
     {
       id: 12,
-      projectType: '3 kW Industrial Rooftop',
+      projectType: '3 kW Commercial Rooftop',
       feedback: 'High-efficiency TOPCon panels have proven to be the ultimate asset for our light manufacturing unit. The system operates at peak capacity even during overcast days.',
       projectImage: image12,
     },
