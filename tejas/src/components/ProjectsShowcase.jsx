@@ -55,7 +55,7 @@ export default function ProjectsShowcase() {
     },
     {
       id: 7,
-      projectType: '2 kW Residential Rooftop',
+      projectType: '10 kW Commerical Rooftop',
       feedback: 'Teja Solar team did an exceptional job installing the panels. Our monthly power bills have plummeted, and the system runs smoothly without any issues.',
       projectImage: image7,
     },
@@ -67,7 +67,7 @@ export default function ProjectsShowcase() {
     },
     {
       id: 9,
-      projectType: '3 kW Commercial Rooftop',
+      projectType: '10 kW Commercial Rooftop',
       feedback: 'The ROI on this solar setup is fantastic. Teja Solar made the entire documentation and subsidy process completely hassle-free for our business.',
       projectImage: image9,
     },

@@ -5,11 +5,22 @@ import Navbar from './components/Navbar';
 import logo from './assets/Teja.jpeg';
 import HeroCarousel from './components/HeroCarousel';
 import StatsSection from './components/StatsSection';
+import LiveSolarImpactDashboard from './components/LiveSolarImpactDashboard';
 import ProductSection from './components/ProductSection';
+import BeforeAfterSlider from './components/BeforeAfterSlider';
+import InstallationTimeline from './components/InstallationTimeline';
 import PMSuryaGhar from './components/PMSuryaGhar';
 import WhyChooseUs from './components/WhyChooseUs';
 import ProjectsShowcase from './components/ProjectsShowcase';
+import InstallationGallery from './components/InstallationGallery';
+import InteractiveProjectMap from './components/InteractiveProjectMap';
+import AIRoofPreview from './components/AIRoofPreview';
 import Testimonials from './components/Testimonials';
+import WeatherForecast from './components/WeatherForecast';
+import SolarLearningCenter from './components/SolarLearningCenter';
+import ServiceAreas from './components/ServiceAreas';
+import TrackInstallation from './components/TrackInstallation';
+import AISolarAdvisor from './components/AISolarAdvisor';
 import SolarCalculator from './components/SolarCalculator';
 import CallUsBanner from './components/CallUsBanner';
 import LocationsPage from './components/LocationsPage';
@@ -153,11 +164,21 @@ export default function App() {
           <>
             <HeroCarousel />
             <StatsSection />
+            <LiveSolarImpactDashboard />
             <ProductSection />
+            <BeforeAfterSlider />
+            <InstallationTimeline />
             <Testimonials />
             <PMSuryaGhar />
             <WhyChooseUs />
             <ProjectsShowcase />
+            <InstallationGallery />
+            <InteractiveProjectMap />
+            <AIRoofPreview />
+            <WeatherForecast />
+            <SolarLearningCenter />
+            <ServiceAreas />
+            <TrackInstallation />
             <CallUsBanner />
             <SolarCalculator />
           </>
@@ -167,6 +188,9 @@ export default function App() {
       </main>
 
       <Footer navigateTo={navigateTo} />
+
+      {/* Floating AI Solar Advisor assistant */}
+      <AISolarAdvisor />
 
       {/* Pulsing Floating WhatsApp Chat Bubble */}
       <a
