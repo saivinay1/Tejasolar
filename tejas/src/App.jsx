@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Navbar from './components/Navbar';
 import logo from './assets/Teja.jpeg';
 import HeroCarousel from './components/HeroCarousel';
@@ -33,6 +34,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showIntro, setShowIntro] = useState(true);
   const [fadeIntro, setFadeIntro] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [preselectedService, setPreselectedService] = useState('');
 
   useEffect(() => {
     // Prevent background scrolling while the intro overlay is active
@@ -57,9 +60,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (view !== 'landing') return;
-
     const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+
+      if (view !== 'landing') return;
+
       const sections = ['home', 'products', 'projects', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 200; // Offset for navbar
 
@@ -119,6 +124,11 @@ export default function App() {
     }
   };
 
+  const handleSelectServiceForEstimate = (serviceType) => {
+    setPreselectedService(serviceType);
+    navigateTo('landing', 'contact');
+  };
+
   return (
     <div className="min-h-screen bg-bg-primary dark:bg-dark-bg-primary text-text-main dark:text-dark-text-main antialiased selection:bg-accent selection:text-text-main font-sans">
       {showIntro && (
@@ -165,7 +175,7 @@ export default function App() {
             <HeroCarousel />
             <StatsSection />
             <LiveSolarImpactDashboard />
-            <ProductSection />
+            <ProductSection onSelectService={handleSelectServiceForEstimate} />
             <BeforeAfterSlider />
             <InstallationTimeline />
             <Testimonials />
@@ -180,7 +190,10 @@ export default function App() {
             <ServiceAreas />
             <TrackInstallation />
             <CallUsBanner />
-            <SolarCalculator />
+            <SolarCalculator
+              preselectedService={preselectedService}
+              onServiceUsed={() => setPreselectedService('')}
+            />
           </>
         ) : (
           <LocationsPage />
@@ -192,15 +205,32 @@ export default function App() {
       {/* Floating AI Solar Advisor assistant */}
       <AISolarAdvisor />
 
-      {/* Pulsing Floating WhatsApp Chat Bubble */}
+      {/* Floating Back-to-Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 left-6 md:bottom-8 md:left-8 w-12 h-12 bg-white/95 dark:bg-[#0a1426]/95 backdrop-blur-md text-text-main dark:text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:border-accent border border-border-color dark:border-dark-border z-[9990] transition-all duration-300 hover:scale-110 active:scale-95 text-sm cursor-pointer group"
+          aria-label="Back to Top"
+        >
+          <FontAwesomeIcon icon={faArrowUp} className="group-hover:-translate-y-0.5 transition-transform" />
+        </button>
+      )}
+
+      {/* Pulsing Floating WhatsApp Chat Bubble with prefilled message */}
       <a
-        href={`https://wa.me/${whatsappNumber}`}
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-[#25d366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-[#25d366]/40 z-[9999] transition-all duration-300 hover:scale-110 active:scale-95 text-2xl whatsapp-float-btn cursor-pointer"
+        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          'Hello Teja Solar Team, I would like to enquire about a solar rooftop / farm field installation for my property in Andhra Pradesh.'
+        )}`}
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-[#25d366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-[#25d366]/40 z-[9999] transition-all duration-300 hover:scale-110 active:scale-95 text-2xl whatsapp-float-btn cursor-pointer group"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact Teja Solar on WhatsApp"
       >
         <FontAwesomeIcon icon={faWhatsapp} />
+        {/* Tooltip on hover */}
+        <span className="absolute right-16 bg-[#0a1426] text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-md border border-white/10">
+          Chat on WhatsApp
+        </span>
       </a>
     </div>
   );

@@ -41,7 +41,7 @@ function CountUp({ target, duration = 800 }) {
 
 const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '919391110007';
 
-export default function SolarCalculator() {
+export default function SolarCalculator({ preselectedService, onServiceUsed }) {
   const [formData, setFormData] = useState({
     systemType: '',
     fullName: '',
@@ -55,6 +55,15 @@ export default function SolarCalculator() {
 
   const [results, setResults] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isCalculating, setIsCalculating] = useState(false);
+
+  useEffect(() => {
+    if (preselectedService) {
+      setFormData((prev) => ({ ...prev, systemType: preselectedService }));
+      if (onServiceUsed) onServiceUsed();
+    }
+  }, [preselectedService, onServiceUsed]);
 
   const sendWhatsAppRedirect = (calcResults) => {
     const message = `Hello Teja Solar Team,
@@ -89,11 +98,45 @@ I would like to book a Free Site Survey & Custom Design!`;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleCalculate = (e) => {
     e.preventDefault();
-    if (!formData.bill || !formData.roofArea) return;
+    if (isCalculating) return;
+
+    // Validate inputs with proper feedback
+    const newErrors = {};
+    if (!formData.systemType) {
+      newErrors.systemType = 'Please select a solar installation sector.';
+    }
+    if (!formData.city) {
+      newErrors.city = 'Please select your city in Andhra Pradesh.';
+    }
+    if (!formData.address.trim()) {
+      newErrors.address = 'Please enter your street address or landmark.';
+    }
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Please enter your full name.';
+    }
+    const cleanMobile = formData.mobile.replace(/\D/g, '');
+    if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      newErrors.mobile = 'Please enter a valid 10-digit mobile number.';
+    }
+    const cleanPin = formData.pincode.replace(/\D/g, '');
+    if (!/^\d{6}$/.test(cleanPin)) {
+      newErrors.pincode = 'Please enter a valid 6-digit postal PIN code.';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setIsCalculating(true);
 
     const monthlyBill = parseFloat(formData.bill);
     const roof = parseFloat(formData.roofArea);
@@ -124,7 +167,7 @@ I would like to book a Free Site Survey & Custom Design!`;
       subsidy = Math.round(systemSize * 30000);
     }
 
-    // Cost computation: approx ₹60,000 per kW (Standard tier-1 mono PERC/TOPCon)
+    // Cost computation: approx ₹65,000 per kW (Standard tier-1 mono PERC/TOPCon)
     const totalCost = Math.round(systemSize * 65000);
     const netCost = Math.max(0, totalCost - subsidy);
 
@@ -146,13 +189,19 @@ I would like to book a Free Site Survey & Custom Design!`;
       treesOffset,
     };
 
-    setResults(calculatedResults);
-    setIsSubmitted(true);
-    sendWhatsAppRedirect(calculatedResults);
+    // Smooth computation loading state before revealing and redirecting
+    setTimeout(() => {
+      setResults(calculatedResults);
+      setIsSubmitted(true);
+      setIsCalculating(false);
+      sendWhatsAppRedirect(calculatedResults);
+    }, 400);
   };
 
   const handleReset = () => {
     setIsSubmitted(false);
+    setIsCalculating(false);
+    setErrors({});
     setResults(null);
     setFormData({
       systemType: '',

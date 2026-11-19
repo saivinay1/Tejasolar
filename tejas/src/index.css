@@ -258,3 +258,34 @@ body {
   background-clip: text;
   animation: text-shine 4000ms linear infinite;
 }
+
+/* Premium micro-interactions and button animations */
+.btn-lift {
+  transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 250ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 250ms cubic-bezier(0.2, 0.8, 0.2, 1), color 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-lift:hover {
+  transform: translateY(-1.5px);
+}
+
+.btn-lift:active {
+  transform: scale(0.97);
+}
+
+/* Accessible focus visible rings */
+:focus-visible {
+  outline: 2px solid hsl(35, 100%, 50%);
+  outline-offset: 2px;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

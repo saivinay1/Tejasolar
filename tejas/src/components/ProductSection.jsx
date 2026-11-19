@@ -6,13 +6,14 @@ import { faArrowLeft, faArrowRight, faSolarPanel } from '@fortawesome/free-solid
 
 const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '919391110007';
 
-export default function ProductSection() {
+export default function ProductSection({ onSelectService }) {
   const services = [
     {
       id: 1,
       image: "https://5.imimg.com/data5/SELLER/Default/2025/11/561550924/US/CC/FS/68759268/off-grid-solar-power-plant-500x500.png",
       category: 'Smart Integration',
       title: 'HYBRID GRID',
+      systemType: 'Residential Solar',
       desc: 'Combine grid stability with solar energy independence, relying on advanced battery backups to keep your operations active during blackouts.',
       whatsappMsg: 'Hello Teja Solar, I am interested in your Hybrid Grid Solar System. Please provide me with the product details and price estimates.',
     },
@@ -21,6 +22,7 @@ export default function ProductSection() {
       image: "https://cdn.prod.website-files.com/63a02e61e7ffb565c30bcfc7/649bdb7d0cf4801a457a70de_Off-Grid%20Solar%20System.webp",
       category: 'Standalone Power',
       title: 'OFF GRID',
+      systemType: 'Residential Solar',
       desc: 'Achieve complete energy independence in remote areas using high-performance solar panels paired with premium battery storage solutions.',
       whatsappMsg: 'Hello Teja Solar, I am interested in your Off-Grid Solar System. Please share product specifications, battery life details, and cost estimates.',
     },
@@ -29,6 +31,7 @@ export default function ProductSection() {
       image: "https://kenbrooksolar.com/wp-content/uploads/2016/02/10-kW-On-Grid-Solar-Power-Plant-Photo.jpg",
       category: 'Grid-Tied Solutions',
       title: 'ON GRID',
+      systemType: 'Commercial Solar Grid',
       desc: 'Drastically reduce your monthly utility bills by feeding excess solar power back to the grid, enjoying state subsidies and net-metering benefits.',
       whatsappMsg: 'Hello Teja Solar, I am interested in your On-Grid Solar System. Please provide information about net-metering setups and system quotes.',
     },
@@ -37,6 +40,7 @@ export default function ProductSection() {
       image: "https://www.agritecture.com/hubfs/Imported_Blog_Media/Agrivoltaic-Jacks-Solar-Farm-Photo-by-Werner-Slocum-NREL-3.jpeg",
       category: 'Agricultural Solar',
       title: 'FARM FIELD SOLAR',
+      systemType: 'Field (Farm Fields) Solar Panels',
       desc: 'Empower your agricultural operations with efficient solar energy solutions for irrigation systems, farm equipment, and rural power needs while reducing electricity costs and ensuring sustainable farming.',
       whatsappMsg: 'Hello Teja Solar, I am interested in your Farm Field Solar agricultural solutions. Please share setup details and agricultural benefits.',
     },
@@ -200,16 +204,24 @@ export default function ProductSection() {
                       <p className="text-text-muted dark:text-dark-text-muted text-sm leading-relaxed mb-6 flex-grow font-medium">
                         {s.desc}
                       </p>
-                      <div className="mt-auto">
+                      <div className="mt-auto flex flex-wrap items-center gap-2.5">
                         <a
                           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(s.whatsappMsg)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 font-extrabold text-xs md:text-sm text-black bg-[#36FB04] hover:bg-[#2ed603] active:scale-95 shadow-sm hover:shadow-md transition-all duration-300 px-6 py-2.5 rounded-full cursor-pointer"
+                          className="inline-flex items-center gap-2 font-extrabold text-xs md:text-sm text-black bg-[#36FB04] hover:bg-[#2ed603] active:scale-95 shadow-sm hover:shadow-md transition-all duration-300 px-5 py-2.5 rounded-full cursor-pointer btn-lift"
                         >
-                          <span>Read More</span>
+                          <span>Enquire WhatsApp</span>
                           <FontAwesomeIcon icon={faArrowRight} className="text-black shrink-0 transition-transform group-hover:translate-x-1 duration-300" />
                         </a>
+                        {onSelectService && (
+                          <button
+                            onClick={() => onSelectService(s.systemType)}
+                            className="inline-flex items-center gap-1.5 font-bold text-xs text-text-main dark:text-white bg-white dark:bg-dark-primary/40 hover:bg-accent/10 dark:hover:bg-accent/15 border border-border-color dark:border-dark-border px-4 py-2.5 rounded-full cursor-pointer transition-all duration-300 active:scale-95 btn-lift"
+                          >
+                            <span>Calculate Quote</span>
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
